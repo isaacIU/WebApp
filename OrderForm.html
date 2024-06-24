@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"></link>
+    <!--Linking the bootstrap CSS framework-->
+
+    <title>ComponentTech LTD | Hardware Order Form</title>
+    <!--The title to appear in the browser tab-->
+    <!--All CSS in the following section------------------------------------------------------------------------------>
+    <style>
+
+    /*Styling of the main blocks*/
+
+        body{
+            background-color: rgb(227, 233, 233);
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        } /*The background colour behind the order form*/
+
+        .container{
+            background-color:white;
+            width: 60%; /*Any wider than this is too much blank space on the order form*/
+            padding: 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        } /*The colour and dimensions of the main container - the order form itself*/
+
+    /*Styling of the fonts*/
+
+        #companyname{
+            font-family: fantasy;
+            font-size: 45px;
+            text-align: center;
+            background-color: brown;
+            border-radius: 5px;
+        } /*Font used for the main heading - the company name*/
+
+        #formname{
+            font-size: 35px;
+            text-align:center;
+        } /*Font used for the next heading - the name of the form*/
+
+        #subheadings{
+            font-size: 25px;
+            text-align: left;
+        } /*Font used for the section headings*/
+
+        #thanks{
+            font-size:20px;
+            text-align: center;
+        } /*Font used for the final sentence on the form*/
+        
+    /*Styling of the input boxes*/
+
+        input{
+            width: 50%; /*Full length input boxes are not neccessary*/
+            border-radius: 5px; 
+            border: 1px solid black;
+            margin-bottom: 1px;
+            padding-left: 5px;  
+        } /*Applies to all the input boxes in the customer details section*/
+
+        input[id=qu]{
+            width: 100%;
+            border-radius: 5px; 
+            border: 1px solid black;
+            margin-bottom: 1px;
+            padding-left: 5px;  
+        } /*Applies only to the quantity input in the order details*/
+
+        input[id=submit]{
+            width: 20%;
+            border-radius: 5px; 
+            border: 1px solid black;
+            margin-bottom: 1px;
+            padding-left: 5px;  
+        } /*Applies only to the quantity input in the order details*/
+
+    /*Styling of the product order table*/
+
+        .table{
+            display: table;
+            width: 100%;
+            border: 1px solid black;
+        } /*Setting the width of the product order table*/
+
+        td, th{
+            border: 1px solid black;
+        } /*Adding gridlines*/
+
+        .largecol{
+            text-align: left;
+        } /*Only the product heading should be offset to the left*/
+
+        .smallcol{
+            text-align: center;
+            width: 10%;
+        } /*The other headings should be centered and the columns small*/
+
+        .centered{
+            text-align: center;
+            vertical-align: middle;
+        } /*centering of the contents of the price, quantity and total columns*/
+
+    </style> <!--End of the CSS components-->
+
+</head>
+<!--HTML components, the structure----------------------------------------------------------------------------------->
+<body>
+<div class="container">
+<!--Beginning of the container body that encapsulates everything-->
+
+    <h1 id="companyname">ComponentTech LTD</h1>
+    <!--The main title is the company name-->
+    <h2 id="formname">Hardware Order Form</h2>
+    <!--Subtitle is the name of the form-->
+
+    <div class="customerdetails"> <!--Beginning of the next section, the customer details form-->
+        <h3 id="subheadings">Customer Details</h3>
+            <form><!--form components start here-->
+
+                <label for="fname">First Name:</label><br>
+                <input type="text" id="fname" name="firstname" placeholder="Enter first name" required></input><br>
+                <!--First name-->
+
+                <label for="lname">Last Name:</label><br>
+                <input type="text" id="lname" name="lastname" placeholder="Enter last name" required></input><br>
+                <!--Last name-->
+
+                <label for="cname">Company:</label><br>
+                <input type="text" id="cname" name="company" placeholder="Company name (optional)"></input><br>
+                <!--Company name is not a required field-->
+
+                <label for="address">Address:</label><br>
+                <input type="text" id="address" name="address" placeholder="Address line 1" required></input><br>
+                <!--Address line 1-->
+
+                <label for="city">City:</label><br>
+                <input type="text" id="city" name="city" placeholder="City" required></input><br>
+                <!--Address line 2-->
+
+                <label for="pcode">Postcode:</label><br>
+                <input type="number" min= "0" id="pcode" name="postcode" placeholder="00000" required></input><br>
+                <!--Postcode takes a different input type-->
+
+                <label for="eaddress">Email Address:</label><br>
+                <input type="email" id="eaddress" name="email" placeholder="e.g component@tech.com" required></input><br>
+                <!--Email takes a different input type-->
+                
+            </form><!--The form ends here-->
+    </div><!--The section ends here-->
+<br><!--Inputting a space between the sections-->
+
+    <div class="orderdetails"><!--Beginning of the next section, the order details-->
+        <h3 id="subheadings">Order Details</h3>
+             <table class="table"><!--The products are displayed in a table-->
+
+                <tr><!--Headings-->
+                    <th class="largecol">Product</th>
+                    <th class="smallcol">Price</th>
+                    <th class="smallcol">Quantity</th>
+                </tr>
+
+                <tr><!--Motherboard-->
+                    <td>ComponentTech Motherboard<br>
+                        <sub>CT Express Chipset / Support for 13th Gen CT Core / PN# CTMB100001</sub>
+                        <!--product details are in subscript below the product-->
+                    </td>
+                    <td class="centered">$219.00</td>
+                    <td class="centered"><input type="number" min= "0" id=qu name=quanA placeholder="0"></input></td>
+                </tr>
+
+                <tr><!--CPU-->
+                    <td>ComponentTech CPU<br>
+                        <sub>8500X 8-Core / 5.0GHz / PN# CTCPU85X01</sub>
+                    </td>
+                    <td class="centered">$219.00</td>
+                    <td class="centered"><input type="number" min= "0" id=qu name=quan1 placeholder="0"></input></td>
+                </tr>
+
+                <tr><!--SSD-->
+                    <td>ComponentTech 2TB SSD<br>
+                        <sub>2TB / R/W 7400/6800 MB/s / PN# CTSSD2TB01</sub>
+                    </td>
+                    <td class="centered">$229.00</td>
+                    <td class="centered"><input type="number" min= "0" id=qu name=quan2 placeholder="0"></input></td>
+                </tr>
+
+                <tr><!--RAM-->
+                    <td>ComponentTech RAM 32GB<br>
+                        <sub>32GB (2x16GB) / 3200 Mhz / PN# CTRAM3232X</sub>
+                    </td>
+                    <td class="centered">$175.00</td>
+                    <td class="centered"><input  type="number" min= "0" id=qu name=quan3 placeholder="0"></input></td>
+                </tr>
+
+                <tr><!--Fan-->
+                    <td>ComponentTech Fan<br>
+                        <sub>V2 240mm CPU Cooler / PN# CTFV200240</sub>
+                    </td>
+                    <td class="centered">$79.00</td>
+                    <td class="centered"><input type="number" min= "0" id=qu name=quan4 placeholder="0"></input></td>
+                </tr>
+
+                <tr><!--Power Supply-->
+                    <td>ComponentTech Power Supply<br>
+                        <sub>650W / 54A / PN# CTPS650X01</sub>
+                    </td>
+                    <td class="centered">$149.00</td>
+                    <td class="centered"><input type="number" min= "0" id=qu name=quan5 placeholder="0"></td>
+                </tr>
+
+             </table><!--The table ends here-->    
+    </div><!--The section ends here-->
+
+    <div class="totalandsubmit"><!--The final section, with a short comment and the submit button-->
+        <p id="thanks">Thank you very much for your order! We hope to hear from you again!</p>
+        <div class="text-center">
+        <button type="button" class="btn btn-success btn-lg">Submit</button>
+        </div>
+    </div><!--End of the final section-->
+
+</div><!--End of the main container-->
+
+</body>
+</html>
